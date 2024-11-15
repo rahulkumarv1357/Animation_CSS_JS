@@ -1,0 +1,72 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+ animation: all 0.2s ease-in-out;
+}
+
+:root {
+ --white: #fff;
+ --black: #000;
+ --red: #f00;
+ --green: #0f0;
+ --blue: #00f;
+ --magenta: #f0f;
+ --orange: #FFA500;
+ --pink:  #FFC0CB;
+ --yellow: #ff0;
+ --aqua: #0ff;
+}
+
+html {
+ font-size: 62.5%;
+ scroll-behavior: smooth;
+ overflow: hidden;
+}
+
+body {
+ width: 100%;
+ min-height: 100vh;
+ background-color: var(--white);
+}
+
+.spark{
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+.spark span{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0.2rem;
+  height: 100%;
+  animation: animate 2s linear forwards;
+}
+
+.spark span::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--magenta);
+  filter: drop-shadow(0 0 2rem var(--magenta)) drop-shadow(0 0 4rem var(--magenta));
+}
+
+@keyframes animate {
+  0%{
+    transform: rotate(calc(var(--i) * 45deg)) translateY(0);
+  }
+  20%{
+    transform: rotate(calc(var(--i) * 45deg)) translateY(0) ;
+  }
+  100%{
+    transform: rotate(calc(var(--i) * 45deg)) translateY(100rem);
+  }
+}
