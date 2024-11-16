@@ -26,9 +26,16 @@ html {
 }
 
 body {
- width: 100%;
- min-height: 100vh;
- background-color: var(--white);
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
+h1{
+  color: var(--magenta);
+  font-size: 4rem;
+  padding: 4rem;
+  text-align: center;
 }
 
 .spark{
