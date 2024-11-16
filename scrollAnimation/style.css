@@ -3,19 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  animation: all 0.2s ease-in-out;
 }
 
 :root {
   --white: #fff;
-  --black: #000;
-  --red: #f00;
-  --green: #0f0;
-  --blue: #00f;
+  --: #0f0;
   --magenta: #f0f;
-  --orange: #ffa500;
-  --pink: #ffc0cb;
-  --yellow: #ff0;
   --aqua: #00a8ff;
   --black222: #222;
 }
@@ -43,6 +36,7 @@ h2 {
   top: 10rem;
   z-index: 10;
 }
+
 form {
   position: fixed;
   top: 5rem;
@@ -50,6 +44,7 @@ form {
   display: flex;
   align-items: center;
 }
+
 div{
   display: flex;
   align-items: center;
@@ -58,12 +53,12 @@ div{
 input[type="checkbox"] {
   width: 3rem;
   height: 3rem;
-  accent-color: var(--magenta);
   appearance: none;
   background-color: var(--magenta);
   border-radius: 0.4rem;
   position: relative;
 }
+
 input[type="checkbox"]::before {
   content: "";
   position: absolute;
@@ -75,9 +70,11 @@ input[type="checkbox"]::before {
   background-color: var(--white);
   border-radius: 0.3rem;
 }
+
 input[type="checkbox"]:checked {
   background-color: var(--magenta);
 }
+
 input[type="checkbox"]:checked::before {
   content: "";
   position: absolute;
@@ -89,6 +86,7 @@ input[type="checkbox"]:checked::before {
   transform: rotate(-15deg);
   background-color: var(--white);
 }
+
 input[type="checkbox"]:checked::after {
   content: "";
   position: absolute;
@@ -100,6 +98,7 @@ input[type="checkbox"]:checked::after {
   transform: rotate(45deg);
   background-color: var(--white);
 }
+
 input[type="number"] {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -109,6 +108,7 @@ input[type="number"] {
   &::placeholder {
     color: #f0f8;
   }
+
   &:focus {
     outline: 0.2rem solid var(--magenta);
     border: none;
@@ -131,6 +131,7 @@ section {
   background-color: var(--white);
   clip-path: circle(0rem at left center);
 }
+
 h1 {
   position: fixed;
   display: flex;
@@ -141,8 +142,14 @@ h1 {
   color: var(--aqua);
   font-size: 40rem;
 }
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
 section h1.transparentText {
-  background-image: url(forest.png);
+  background-image: url(image.jpg);
   background-size: contain;
   background-clip: text;
   color: transparent;
@@ -165,11 +172,13 @@ section h1.transparentText {
     font-size: 20rem;
   }
 }
+
 @container (max-width: 60rem) {
   h1 {
     font-size: 15rem;
   }
 }
+
 @container (max-width: 45rem) {
   h1 {
     font-size: 11rem;
@@ -183,6 +192,7 @@ section h1.transparentText {
     top: 15rem;
   }
 }
+
 @container (max-width: 30rem) {
   h1 {
     font-size: 8rem;
