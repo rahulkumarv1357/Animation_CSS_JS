@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form >
+    <div>
+      <input type="checkbox" name="checkbox" id="debounce">
+      <label for="debounce">Debounce</label>
+    </div>
+    <input type="number" name="debounceTiming" placeholder="Enter debounce time(ms)">
+  </form>
+  <h2>Scroll down to see animation.</h2>
+  <h1 class="colorText">Forest</h1>
+  <section>
+    <h1 class="transparentText">Forest</h1>
+  </section>
+  <script>
+    const transparentText = document.querySelector('section')
+    const checkbox = document.querySelector('#debounce')
+    const input = document.querySelector('input[type="number"]')
+    window.scrollTo(0, document.documentElement.scrollHeight / 3); 
+    let duration = 100
+    input.onchange = () => {
+      duration =  Number(input.value) 
+      checkbox.checked = true
+      updateDebounce = debounce( (radius) =>{
+      transparentText.style.clipPath = "circle("+radius+"px at left center)"
+    }, duration)
+    }
+    checkbox.onclick = function(e){
+      checkbox.checked ? false : true;
+    }
+    window.addEventListener('scroll', () => {
+      if(document.activeElement === input){
+        input.blur()
+        checkbox.checked = true
+      }
+      const clipPathRadius = Math.floor(window.pageYOffset) ;
+      checkbox.checked ? updateDebounce(clipPathRadius) : transparentText.style.clipPath = "circle("+clipPathRadius+"px at left center)"
+    })
+    
+    let updateDebounce = debounce( (radius) =>{
+      transparentText.style.clipPath = "circle("+radius+"px at left center)"
+    }, duration)
+    
+    function debounce( cb, delay = 50){
+      let timeout
+      return (...args) => {
+        clearTimeout(timeout)
+        timeout = setTimeout( () =>{
+          cb(...args)
+        }, delay)
+      }
+    }
+  </script>
+  </body>
+  </html>
