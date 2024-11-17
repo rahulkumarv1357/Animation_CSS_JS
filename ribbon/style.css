@@ -1,0 +1,71 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+}
+
+:root {
+ --white: #fff;
+ --blue: #42bafa;
+ --whiteEEE: #eee;
+ --cardWidth: 30rem;
+ --cardHeight: 40rem;
+ --ribbonSize: 15rem;
+}
+
+html {
+ font-size: 62.5%;
+}
+
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ min-height: 100vh;
+ background-color: var(--whiteEEE);
+}
+.card{
+  width: var(--cardWidth);
+  height: var(--cardHeight);
+  background-color: var(--white);
+  border-radius: 1rem;
+  box-shadow: 0 0 4rem 2rem rgba(0, 0, 0, 0.1);
+}
+.card .ribbon{
+  width: var(--ribbonSize);
+  height: var(--ribbonSize);
+  display: block;
+  position: relative;
+  top: -1rem;
+  left: -1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.card .ribbon::before{
+  content: "RIBBON";
+  position: absolute;
+  width: calc(1.41 * var(--ribbonSize));
+  height: 4rem;
+  background-color: var(--blue);
+  transform: rotate(-45deg) translateY(-2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+.card .ribbon::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--blue);
+  box-shadow: -14.1rem 14.1rem var(--blue);
+}

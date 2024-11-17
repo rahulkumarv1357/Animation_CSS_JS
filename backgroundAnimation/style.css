@@ -74,6 +74,6 @@ h1{
     transform: rotate(calc(var(--i) * 45deg)) translateY(0) ;
   }
   100%{
-    transform: rotate(calc(var(--i) * 45deg)) translateY(100rem);
+    transform: rotate(calc(var(--i) * 45deg)) translateY(160rem);
   }
 }
