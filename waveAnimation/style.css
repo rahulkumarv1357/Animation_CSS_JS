@@ -1,0 +1,77 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+}
+
+:root {
+ --white: #fff;
+ --black: #000;
+ --magenta: #f0f;
+ --blue: #12b9ff;
+ --green: #0a3643;
+}
+
+html {
+ font-size: 62.5%;
+ overflow: hidden;
+}
+
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ min-height: 100vh;
+ background-color: var(--green);
+}
+
+.pulse{
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10rem var(--blue),
+              0 0 5rem var(--blue);
+  background-image: url(earthTexture.jpg);
+  background-size: cover;
+  animation: pulseAnimate 12s linear infinite;
+}
+
+@keyframes pulseAnimate {
+  0%{
+    background-position-x: 0;
+  }
+  100%{
+    background-position-x: 40rem;
+  }
+}
+
+.pulse span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 20rem;
+  border: 0.2rem solid var(--blue);
+  border-radius: 50%;
+  animation: animate 4s linear calc(var(--i) * 1s) infinite;
+}
+
+@keyframes animate {
+  0%{
+    width: 20rem;
+    height: 20rem;
+  }
+  50%{
+    opacity: 1;
+  }
+
+  100%{
+    width: 80rem;
+    height: 80rem;
+    transform: translate(-30rem, -30rem);
+    opacity: 0;
+  }
+}
