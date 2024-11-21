@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>photo gallery filtarable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="tab">
+      <div class="tabItem active" data-tabType="all">All</div>
+      <div class="tabItem " data-tabType="phone">Phone</div>
+      <div class="tabItem" data-tabType="camera">Camera</div>
+      <div class="tabItem" data-tabType="watch">Watch</div>
+    </section>
+
+    <section class="data">
+      <div class="boxItem" data-value="phone"><img src="./images/phone1.webp" alt="phone image"></div>
+      <div class="boxItem" data-value="camera"><img src="./images/camera1.avif" alt="phone image"></div>
+      <div class="boxItem" data-value="watch"><img src="./images/watch1.webp" alt="phone image"></div>
+
+      <div class="boxItem" data-value="phone"><img src="./images/phone2.webp" alt="phone image"></div>
+      <div class="boxItem" data-value="camera"><img src="./images/camera2.jpg" alt="phone image"></div>
+      <div class="boxItem" data-value="watch"><img src="./images/watch2.jpg" alt="phone image"></div>
+ 
+      <div class="boxItem" data-value="phone"><img src="./images/phone3.webp" alt="phone image"></div>
+      <div class="boxItem" data-value="camera"><img src="./images/camera3.jpg" alt="phone image"></div>
+      <div class="boxItem" data-value="watch"><img src="./images/watch3.webp" alt="phone image"></div>
+ 
+      <div class="boxItem" data-value="phone"><img src="./images/phone4.webp" alt="phone image"></div>
+      <div class="boxItem" data-value="camera"><img src="./images/camera4.webp" alt="phone image"></div>
+      <div class="boxItem" data-value="watch"><img src="./images/watch4.jpg" alt="phone image"></div>
+    </section>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab .tabItem")
+    const images = document.querySelectorAll(".data .boxItem")
+
+    tabs.forEach( (tab) => {
+      tab.addEventListener("click", (e) => {
+        tabs.forEach( (tab) => tab.classList.remove('active'))
+        tab.classList.add('active')
+        const tabType = tab.getAttribute("data-tabType")
+        images.forEach( (image) => {
+          const tabValue = image.getAttribute('data-value')
+          image.classList.remove("active")
+          image.classList.add("hide")
+          if(tabType === tabValue || tabType === "all"){
+            image.classList.remove("hide")
+            image.classList.add("active")
+          }
+        })
+      })
+    })
+  </script>
+
+</body>
+</html>

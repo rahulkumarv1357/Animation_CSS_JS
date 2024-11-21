@@ -1,0 +1,79 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+}
+
+:root {
+ --white: #fff;
+ --black: #000;
+ --magenta: #f0f;
+ --blue: #42bafa;
+}
+
+html {
+ font-size: 62.5%;
+}
+
+body {
+ display: flex;
+ justify-content: center;
+ width: 100%;
+ min-height: 100vh;
+ background-color: var(--white);
+}
+main{
+  margin-bottom: 4rem;
+}
+.tab{
+  display: flex;
+  margin: 2rem 0;
+  justify-content: center;
+  flex-flow: wrap;
+}
+.tab .tabItem{
+  background-color: #eee;
+  padding: 2rem 4rem;
+  margin: 1.5rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.4rem;
+  color: #000;
+}
+.tab .tabItem.active,
+.tab .tabItem:hover{
+  color: #fff;
+  background: #42bafa;
+}
+.data{
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 2rem;
+  width: 100vw;
+}
+.data .boxItem{
+  position: relative;
+  width: 30rem;
+  height: 40rem;
+  background-color: #42bafa;
+}
+.data .boxItem.active{
+  display: block;
+}
+.data .boxItem.hide{
+  display: none;
+}
+.data .boxItem img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #42bafa;
+}
