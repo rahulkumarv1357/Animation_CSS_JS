@@ -1,0 +1,79 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+}
+
+:root {
+ --white: #fff;
+ --black: #000;
+ --magenta: #f0f;
+ --blue: #42bafa;
+ --black555: #555;
+ --black777: #777;
+}
+
+html {
+ font-size: 62.5%;
+}
+
+body {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ min-height: 100vh;
+ background-color: var(--black777);
+}
+.container{
+  width: 100%;
+  height: 100vh;
+  background-image: radial-gradient(#111, #222);
+  padding-left: 10rem;
+  display: flex;
+  align-items: center;
+
+}
+.container .box{
+  width: 50rem;
+  height: 13rem;
+  background-color: #444;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transform: perspective(100rem) rotateX(30deg);
+  position: relative;
+}
+
+.container .box::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  transform: translateY(-50%);
+  background-image: linear-gradient(90deg, #fff 0%, #fff 70%, #444 70%, #444 100%);
+  background-size: 10rem;
+  animation: animateRoad 1s linear infinite;
+}
+@keyframes animateRoad {
+  0%{
+    background-position: 0;
+  }
+  100%{
+    background-position: -10rem;
+  }
+}
+
+.container .box::after{
+  content: "";
+  position: absolute;
+  bottom: -4rem;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: #444;
+  transform-origin: top;
+  transform-style: preserve-3d;
+  transform: perspective(100rem) rotateX(30deg);
+}
